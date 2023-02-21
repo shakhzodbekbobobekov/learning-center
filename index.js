@@ -1,10 +1,9 @@
-"use strict";
-exports.__esModule = true;
-var axios_1 = require("axios");
-var url = "https://jsonplaceholder.typicode.com/todos/1";
-axios_1["default"].get(url).then(function (res) {
-    var id = res.data.id;
-    var title = res.data.title;
-    var completed = res.data.completed;
-    console.log("\n    My id: ".concat(id, "\n    My title: ").concat(title, "\n    My completed: ").concat(completed, "\n  "));
-});
+var car = {
+    name: "bmw",
+    isAirBag: true
+};
+var loggerCalc = function (_a) {
+    var name = _a.name, isAirBag = _a.isAirBag;
+    console.log("my car name is ".concat(name, ", has isAirBag ").concat(isAirBag, " "));
+};
+loggerCalc(car);
