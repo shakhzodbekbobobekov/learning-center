@@ -1,9 +1,25 @@
+// const car = {
+//   name: "bmw",
+//   isAirBag: true,
+// };
 var car = {
-    name: "bmw",
-    isAirBag: true
+    name: "abu",
+    color: "red",
+    wheels: 4,
+    speed: function () {
+        return 150 * this.wheels;
+    }
 };
-var loggerCalc = function (_a) {
-    var name = _a.name, isAirBag = _a.isAirBag;
-    console.log("my car name is ".concat(name, ", has isAirBag ").concat(isAirBag, " "));
+var bestGM = {
+    name: "Gentra",
+    color: "white",
+    wheels: 7,
+    speed: function () {
+        return 150 * this.wheels;
+    }
 };
-loggerCalc(car);
+var myCar = function (vehicles) {
+    console.log("\n  my car ".concat(vehicles.name, "\n  my color ").concat(vehicles.color, "\n  my wheels ").concat(vehicles.wheels, "\n  speed is ").concat(vehicles.speed(), "\n  "));
+};
+myCar(car);
+myCar(bestGM);
