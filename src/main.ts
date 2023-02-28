@@ -29,9 +29,43 @@
 // console.log(result);
 // console.log(result2);
 
-type OBJ = {name: string, year:number, model: string, price:number}
-let obj:OBJ
+// let a = [];
+// a = [1, 2, "a", "b", function myApp() {}, { naem: "sd" }];
 
-obj = {name:"GM",year: 2024, model: "Qimmatidan", price: 20_000};
+// let b = [ 1,2,34]
 
-console.log(obj)
+class Person {
+  name: string;
+  age: number;
+  marreid: boolean;
+  constructor(name: string, age: number, marreid: boolean) {
+    this.name = name;
+    this.age = age;
+    this.marreid = marreid;
+  }
+}
+
+class newPerson extends Person {
+  group: number;
+  years: number;
+  grand: number;
+  constructor(
+    name: string,
+    age: number,
+    marred: boolean,
+    group: number,
+    years: number,
+    grand: number
+  ) {
+    super(name, age, marred);
+    this.group = group;
+    this.years = years;
+    this.grand = grand;
+  }
+}
+
+let results = new Person("john", 23, false);
+let results2 = new newPerson("john", 23, false, 3319, 2023, 4);
+
+console.log(results);
+console.log(results2);
