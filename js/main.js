@@ -45,6 +45,18 @@ class newPerson extends Person {
 }
 let results = new Person("john", 23, false);
 let results2 = new newPerson("john", 23, false, 3319, 2023, 4);
-console.log(results);
-console.log(results2);
+// ! 
+var Utils;
+// ! 
+(function (Utils) {
+    function log(text, color, fontSize) {
+        if (fontSize) {
+            console.log(`%c${text}`, `color: ${color}; font-size: ${fontSize} `);
+        }
+        else {
+            console.log(`%c${text}, color: ${color}; `);
+        }
+    }
+    log("Salom Typescript", "red", "32px");
+})(Utils || (Utils = {}));
 //# sourceMappingURL=main.js.map

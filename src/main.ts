@@ -45,27 +45,32 @@ class Person {
   }
 }
 
-class newPerson extends Person {
+class newPerson extends Person{
   group: number;
   years: number;
   grand: number;
-  constructor(
-    name: string,
-    age: number,
-    marred: boolean,
-    group: number,
-    years: number,
-    grand: number
-  ) {
-    super(name, age, marred);
+  constructor(name: string, age: number, marred: boolean, group: number, years: number, grand: number){
+   
+    super(name, age, marred)
     this.group = group;
     this.years = years;
     this.grand = grand;
   }
 }
 
-let results = new Person("john", 23, false);
-let results2 = new newPerson("john", 23, false, 3319, 2023, 4);
 
-console.log(results);
-console.log(results2);
+let results = new Person("john", 23, false)
+let results2 = new newPerson("john", 23, false, 3319, 2023,4)
+
+// ! 
+
+namespace Utils {
+  function log(text: string, color: string, fontSize?: string): void{
+    if(fontSize){
+      console.log(`%c${text}`, `color: ${color}; font-size: ${fontSize} `)
+    }else{
+      console.log(`%c${text}, color: ${color}; `)
+    }
+  }
+  log("Salom Typescript", "red", "32px")
+}
