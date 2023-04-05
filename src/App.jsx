@@ -1,57 +1,46 @@
-import { useRef, useState } from "react";
-
+import { useDispatch, useSelector } from "react-redux";
+import { minusCount, plusCount, resetCount } from "./reducers/countSlice";
+import { addedEven } from "./reducers/copySlice";
 function App() {
-  const [number, setNumber] = useState("");
-  const [cardCVC, setCardCVC] = useState("");
-  const [cardName, setCardName] = useState("");
-
-  const cvcCard = useRef();
-  const textCard = useRef();
-
-  const cardNumber = (e) => {
-    const val = e.target.value;
-    setNumber(val);
-
-    if (val.length === 16) {
-      cvcCard.current.focus();
-    }
-  };
-  const cardNumberCVC = (e) => {
-   const cvcValue = (e.target.value);
-   setCardCVC(cvcValue)
-   if(cvcValue.length === 3){
-    textCard.current.focus()
-   }
-  };
-
-  const cardNumberName = (e) => {
-    setCardName(e.target.value);
-  };
-
+  const state = useSelector((state) => state);
+  // console.log(state);
+  const dispatch = useDispatch(plusCount, minusCount, resetCount, addedEven);
   return (
-    <div>
-      <form>
-        <input
-          type="number"
-          placeholder="number"
-          onChange={cardNumber}
-          value={number}
-        />
-        <input
-          ref={cvcCard}
-          type="number"
-          placeholder="cvc"
-          onChange={cardNumberCVC}
-          value={cardCVC}
-        />
-        <input
-          ref={textCard}
-          type="text"
-          placeholder="name card"
-          onChange={cardNumberName}
-          value={cardName}
-        />
-      </form>
+    <div className="card container mt-2 p-3">
+      <h5 className="card-title">Card counter: {state.countReducer.count} </h5>
+      <h5>{state.copySlice.copyCount}</h5>
+      <div className="card-body">
+        <div className="btn-group">
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => dispatch(minusCount())}
+          >
+            Minus
+          </button>
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={() => dispatch(resetCount())}
+          >
+            Reset
+          </button>
+          <button
+            type="button"
+            className="btn btn-warning"
+            onClick={() => dispatch(plusCount())}
+          >
+            Plus
+          </button>
+          <button
+            type="button"
+            className="btn btn-info"
+            onClick={() => dispatch(addedEven())}
+          >
+            Plus x2
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
