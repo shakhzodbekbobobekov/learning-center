@@ -7,6 +7,7 @@ const Button = ({
   appearance,
   children,
   arrow = "none",
+  ...props
 }: ButtonProps): JSX.Element => {
   return (
     <button
@@ -14,6 +15,7 @@ const Button = ({
         [styles.primary]: appearance === "primary",
         [styles.ghost]: appearance === "ghost",
       })}
+      {...props}
     >
       {children}
       {/* childeren none */}
