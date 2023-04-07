@@ -1,4 +1,5 @@
 import { Button, Heading, Tag, Text } from "@/components";
+import Input from "@/components/input/input";
 import { useState } from "react";
 
 const Index = () => {
@@ -25,8 +26,10 @@ const Index = () => {
       >
         Arrow
       </Button>
+      <Input placeholder="enter bro " />
     </div>
   );
 };
 
 export default Index;
+
