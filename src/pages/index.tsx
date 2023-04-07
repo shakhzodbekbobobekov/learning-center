@@ -1,4 +1,4 @@
-import { Button, Heading, Tag, Text } from "@/components";
+import { Button, Heading, Tag, Text, TextArea } from "@/components";
 import Input from "@/components/input/input";
 import { useState } from "react";
 
@@ -27,6 +27,7 @@ const Index = () => {
         Arrow
       </Button>
       <Input placeholder="enter bro " />
+      <TextArea placeholder="message" />
     </div>
   );
 };
