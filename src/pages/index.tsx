@@ -8,17 +8,16 @@ import {
   TextArea,
 } from "@/components";
 import Input from "@/components/input/input";
+import { MenuItem } from "@/interfaces/menu.interface";
 import { withLayout } from "@/layout/layout";
 import axios from "axios";
 import { GetServerSideProps } from "next";
 import { useState } from "react";
 
-const Index = (/* { data } */) => {
-  // console.log(data);
-
+const Index = ({ firstCategory, menu }: HomeProps): JSX.Element => {
   const [isClick, setIsClick] = useState(false);
   const [rating, setRating] = useState<number>(2);
-
+  console.log(menu);
   return (
     <>
       <Heading tag="h3">Children</Heading>
@@ -64,17 +63,24 @@ const Index = (/* { data } */) => {
 
 export default withLayout(Index);
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const { data } = await axios.post(
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+  const firstCategory = 0;
+  const { data: menu } = await axios.post(
     `${process.env.NEXT_PUBLIC_DOMAIN}/api/page-find`,
     {
-      firstCategory: 1,
+      firstCategory,
     }
   );
 
   return {
     props: {
-      data,
+      menu,
+      firstCategory,
     },
   };
 };
+
+interface HomeProps extends Record<string, unknown> {
+  firstCategory: number;
+  menu: MenuItem[];
+}
