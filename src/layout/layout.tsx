@@ -14,7 +14,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
       <Footer className={styles.footer} />
     </div>
   );
-};
+}; 
 
 export const withLayout = <T extends Record<string, unknown>>(
   Component: FunctionComponent<T>
