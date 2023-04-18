@@ -14,10 +14,9 @@ import axios from "axios";
 import { GetServerSideProps } from "next";
 import { useState } from "react";
 
-const Index = ({ firstCategory, menu }: HomeProps): JSX.Element => {
+const Index = (): JSX.Element => {
   const [isClick, setIsClick] = useState(false);
   const [rating, setRating] = useState<number>(2);
-  console.log(menu);
   return (
     <>
       <Heading tag="h3">Children</Heading>

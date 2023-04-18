@@ -15,7 +15,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
       <Footer className={styles.footer} />
     </div>
   );
-}; 
+};
 
 export const withLayout = <T extends Record<string, unknown> & IAppContext>(
   Component: FunctionComponent<T>
@@ -24,9 +24,11 @@ export const withLayout = <T extends Record<string, unknown> & IAppContext>(
     console.log(props);
     return (
       <Layout>
-        <AppContextProvider menu={props.menu} firstCategory={props.firstCategory} >
-
-        <Component {...props} />
+        <AppContextProvider
+          menu={props.menu}
+          firstCategory={props.firstCategory}
+        >
+          <Component {...props} />
         </AppContextProvider>
       </Layout>
     );
